@@ -1,222 +1,222 @@
 [
   {
-    "id": "demo-01",
-    "title": "Sort objects into bins",
-    "group": "Pick & place",
-    "setup": "Bimanual",
-    "duration": 59.87,
-    "ratio": 1.7647058823529411,
-    "orientation": "landscape",
-    "video": "media/demos/demo-01.mp4",
-    "poster": "media/posters/demo-01.jpg"
-  },
-  {
     "id": "demo-02",
-    "title": "Arrange cups on a shelf",
-    "group": "Pick & place",
+    "title": "Place an object",
     "setup": "Bimanual",
     "duration": 26.83,
     "ratio": 1.7777777777777777,
     "orientation": "landscape",
     "video": "media/demos/demo-02.mp4",
-    "poster": "media/posters/demo-02.jpg"
+    "poster": "media/posters/demo-02.jpg",
+    "source_name": "Place Object.mp4"
   },
   {
     "id": "demo-03",
     "title": "Hang a cup",
-    "group": "Pick & place",
     "setup": "Bimanual",
     "duration": 21.7,
     "ratio": 1.7777777777777777,
     "orientation": "landscape",
     "video": "media/demos/demo-03.mp4",
-    "poster": "media/posters/demo-03.jpg"
+    "poster": "media/posters/demo-03.jpg",
+    "source_name": "Hang Cup.mp4"
   },
   {
     "id": "demo-04",
-    "title": "Prepare a sandwich",
-    "group": "Everyday skills",
+    "title": "Stack a sandwich",
     "setup": "Bimanual",
     "duration": 60.37,
     "ratio": 1.7777777777777777,
     "orientation": "landscape",
     "video": "media/demos/demo-04.mp4",
-    "poster": "media/posters/demo-04.jpg"
-  },
-  {
-    "id": "demo-05",
-    "title": "Insert sticks in sequence",
-    "group": "Precision & tools",
-    "setup": "Single arm",
-    "duration": 24.03,
-    "ratio": 0.5625,
-    "orientation": "portrait",
-    "video": "media/demos/demo-05.mp4",
-    "poster": "media/posters/demo-05.jpg"
-  },
-  {
-    "id": "demo-06",
-    "title": "Repeated stick insertion",
-    "group": "Precision & tools",
-    "setup": "Single arm",
-    "duration": 52.9,
-    "ratio": 0.5666666666666667,
-    "orientation": "portrait",
-    "video": "media/demos/demo-06.mp4",
-    "poster": "media/posters/demo-06.jpg"
-  },
-  {
-    "id": "demo-07",
-    "title": "Drive a screw",
-    "group": "Precision & tools",
-    "setup": "Single arm",
-    "duration": 2.33,
-    "ratio": 1.7777777777777777,
-    "orientation": "landscape",
-    "video": "media/demos/demo-07.mp4",
-    "poster": "media/posters/demo-07.jpg"
-  },
-  {
-    "id": "demo-08",
-    "title": "Screwdriving close-up",
-    "group": "Precision & tools",
-    "setup": "Single arm",
-    "duration": 5.87,
-    "ratio": 1.7777777777777777,
-    "orientation": "landscape",
-    "video": "media/demos/demo-08.mp4",
-    "poster": "media/posters/demo-08.jpg"
-  },
-  {
-    "id": "demo-09",
-    "title": "Screwdriving on a rail",
-    "group": "Precision & tools",
-    "setup": "Single arm",
-    "duration": 9.0,
-    "ratio": 0.5625,
-    "orientation": "portrait",
-    "video": "media/demos/demo-09.mp4",
-    "poster": "media/posters/demo-09.jpg"
+    "poster": "media/posters/demo-04.jpg",
+    "source_name": "Stack Sandwich .mp4"
   },
   {
     "id": "demo-10",
-    "title": "Press buttons in sequence",
-    "group": "Memory & sequencing",
+    "title": "Press a button",
     "setup": "Single arm",
     "duration": 21.83,
     "ratio": 1.7777777777777777,
     "orientation": "landscape",
     "video": "media/demos/demo-10.mp4",
-    "poster": "media/posters/demo-10.jpg"
+    "poster": "media/posters/demo-10.jpg",
+    "source_name": "Press Button.mp4"
   },
   {
-    "id": "demo-11",
-    "title": "Sort fruit onto plates",
-    "group": "Pick & place",
-    "setup": "Bimanual",
-    "duration": 21.07,
+    "id": "demo-08",
+    "title": "Drive screws (2)",
+    "setup": "Single arm",
+    "duration": 5.87,
     "ratio": 1.7777777777777777,
     "orientation": "landscape",
-    "video": "media/demos/demo-11.mp4",
-    "poster": "media/posters/demo-11.jpg"
+    "video": "media/demos/demo-08.mp4",
+    "poster": "media/posters/demo-08.jpg",
+    "source_name": "Driving screws2.mp4"
+  },
+  {
+    "id": "demo-07",
+    "title": "Drive screws (3)",
+    "setup": "Single arm",
+    "duration": 2.33,
+    "ratio": 1.7777777777777777,
+    "orientation": "landscape",
+    "video": "media/demos/demo-07.mp4",
+    "poster": "media/posters/demo-07.jpg",
+    "source_name": "Driving screws3.mp4"
   },
   {
     "id": "demo-12",
-    "title": "Interact with an oven",
-    "group": "Everyday skills",
+    "title": "Open the oven",
     "setup": "Bimanual",
     "duration": 29.27,
     "ratio": 1.7777777777777777,
     "orientation": "landscape",
     "video": "media/demos/demo-12.mp4",
-    "poster": "media/posters/demo-12.jpg"
+    "poster": "media/posters/demo-12.jpg",
+    "source_name": "Open the oven.mp4"
+  },
+  {
+    "id": "demo-01",
+    "title": "Place items in a box (1)",
+    "setup": "Bimanual",
+    "duration": 59.87,
+    "ratio": 1.7647058823529411,
+    "orientation": "landscape",
+    "video": "media/demos/demo-01.mp4",
+    "poster": "media/posters/demo-01.jpg",
+    "source_name": "Put the items in the box.mp4"
   },
   {
     "id": "demo-13",
-    "title": "Retrieve an object from a box",
-    "group": "Memory & sequencing",
+    "title": "Place items in a box (2)",
     "setup": "Bimanual",
     "duration": 4.8,
     "ratio": 1.7777777777777777,
     "orientation": "landscape",
     "video": "media/demos/demo-13.mp4",
-    "poster": "media/posters/demo-13.jpg"
+    "poster": "media/posters/demo-13.jpg",
+    "source_name": "Put the items in the box2.mp4"
   },
   {
     "id": "demo-14",
-    "title": "Place fruit on plates",
-    "group": "Pick & place",
+    "title": "Place fruit on a plate (1)",
     "setup": "Bimanual",
     "duration": 20.33,
     "ratio": 1.7777777777777777,
     "orientation": "landscape",
     "video": "media/demos/demo-14.mp4",
-    "poster": "media/posters/demo-14.jpg"
+    "poster": "media/posters/demo-14.jpg",
+    "source_name": "Put the fruit on the plate.mp4"
   },
   {
-    "id": "demo-15",
-    "title": "Stack bowls",
-    "group": "Pick & place",
+    "id": "demo-11",
+    "title": "Place fruit on a plate (2)",
     "setup": "Bimanual",
-    "duration": 16.33,
-    "ratio": 0.5625,
-    "orientation": "portrait",
-    "video": "media/demos/demo-15.mp4",
-    "poster": "media/posters/demo-15.jpg"
-  },
-  {
-    "id": "demo-16",
-    "title": "Fold a towel",
-    "group": "Everyday skills",
-    "setup": "Bimanual",
-    "duration": 17.13,
+    "duration": 21.07,
     "ratio": 1.7777777777777777,
     "orientation": "landscape",
-    "video": "media/demos/demo-16.mp4",
-    "poster": "media/posters/demo-16.jpg"
+    "video": "media/demos/demo-11.mp4",
+    "poster": "media/posters/demo-11.jpg",
+    "source_name": "Put the fruit on the plate2.mp4"
   },
   {
     "id": "demo-17",
-    "title": "Arrange bowls",
-    "group": "Pick & place",
+    "title": "Stack bowls (2)",
     "setup": "Bimanual",
     "duration": 11.2,
     "ratio": 1.7777777777777777,
     "orientation": "landscape",
     "video": "media/demos/demo-17.mp4",
-    "poster": "media/posters/demo-17.jpg"
+    "poster": "media/posters/demo-17.jpg",
+    "source_name": "Stacking bowls2.mp4"
+  },
+  {
+    "id": "demo-16",
+    "title": "Fold towels",
+    "setup": "Bimanual",
+    "duration": 17.13,
+    "ratio": 1.7777777777777777,
+    "orientation": "landscape",
+    "video": "media/demos/demo-16.mp4",
+    "poster": "media/posters/demo-16.jpg",
+    "source_name": "Folding towels.mp4"
   },
   {
     "id": "demo-18",
-    "title": "Zip a pouch",
-    "group": "Everyday skills",
+    "title": "Align the fabric",
     "setup": "Bimanual",
     "duration": 10.77,
     "ratio": 1.7777777777777777,
     "orientation": "landscape",
     "video": "media/demos/demo-18.mp4",
-    "poster": "media/posters/demo-18.jpg"
+    "poster": "media/posters/demo-18.jpg",
+    "source_name": "Align the fabric.mp4"
   },
   {
     "id": "demo-19",
-    "title": "Manipulate a container",
-    "group": "Everyday skills",
+    "title": "Place a glue stick in a cup",
     "setup": "Bimanual",
     "duration": 11.27,
     "ratio": 1.6,
     "orientation": "landscape",
     "video": "media/demos/demo-19.mp4",
-    "poster": "media/posters/demo-19.jpg"
+    "poster": "media/posters/demo-19.jpg",
+    "source_name": "Put the glue stick into the cup.mp4"
+  },
+  {
+    "id": "demo-05",
+    "title": "Insert a stick (1)",
+    "setup": "Single arm",
+    "duration": 24.03,
+    "ratio": 0.5625,
+    "orientation": "portrait",
+    "video": "media/demos/demo-05.mp4",
+    "poster": "media/posters/demo-05.jpg",
+    "source_name": "Insert Stick.mp4"
+  },
+  {
+    "id": "demo-06",
+    "title": "Insert a stick (2)",
+    "setup": "Single arm",
+    "duration": 52.9,
+    "ratio": 0.5666666666666667,
+    "orientation": "portrait",
+    "video": "media/demos/demo-06.mp4",
+    "poster": "media/posters/demo-06.jpg",
+    "source_name": "Insert Stick2.mp4"
+  },
+  {
+    "id": "demo-09",
+    "title": "Drive screws (1)",
+    "setup": "Single arm",
+    "duration": 9.0,
+    "ratio": 0.5625,
+    "orientation": "portrait",
+    "video": "media/demos/demo-09.mp4",
+    "poster": "media/posters/demo-09.jpg",
+    "source_name": "Driving screws1.mp4"
+  },
+  {
+    "id": "demo-15",
+    "title": "Stack bowls (1)",
+    "setup": "Bimanual",
+    "duration": 16.33,
+    "ratio": 0.5625,
+    "orientation": "portrait",
+    "video": "media/demos/demo-15.mp4",
+    "poster": "media/posters/demo-15.jpg",
+    "source_name": "Stacking bowls.mp4"
   },
   {
     "id": "demo-20",
-    "title": "Fold a garment",
-    "group": "Everyday skills",
+    "title": "Fold clothes",
     "setup": "Bimanual",
     "duration": 14.83,
     "ratio": 0.5625,
     "orientation": "portrait",
     "video": "media/demos/demo-20.mp4",
-    "poster": "media/posters/demo-20.jpg"
+    "poster": "media/posters/demo-20.jpg",
+    "source_name": "Folding clothes.mp4"
   }
 ]

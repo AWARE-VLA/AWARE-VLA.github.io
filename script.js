@@ -1,6 +1,12 @@
 'use strict';
 const grid = document.querySelector('#demo-grid');
-const filters = document.querySelector('#demo-filters');
+const portraitGrid = document.querySelector('#portrait-grid');
+const player = document.querySelector('#demo-player');
+const playerVideo = document.querySelector('#player-video');
+const playerError = document.querySelector('#player-error');
+let gallery = [];
+let currentClip = 0;
+let playbackRequest = 0;
 const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const icons = () => window.lucide?.createIcons();
 const duration = seconds => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
@@ -12,51 +18,89 @@ async function getData(path) {
 }
 
 function renderDemos(demos) {
-  const categories = ['All demos', 'Pick & place', 'Precision & tools', 'Memory & sequencing', 'Everyday skills'];
-  filters.innerHTML = categories.map((group, i) => `<button class="filter" type="button" data-filter="${escapeHtml(group)}" aria-pressed="${i === 0}">${escapeHtml(group)}<span class="filter-count">${i === 0 ? demos.length : demos.filter(d => d.group === group).length}</span></button>`).join('');
-  const order = ['demo-04','demo-03','demo-10','demo-05','demo-01','demo-02','demo-06','demo-07','demo-08','demo-09','demo-11','demo-12','demo-13','demo-14','demo-15','demo-16','demo-17','demo-18','demo-19','demo-20'];
-  const ordered = [...demos].sort((a,b) => order.indexOf(a.id) - order.indexOf(b.id));
-  grid.innerHTML = ordered.map((d, i) => `<figure class="demo-card" data-group="${escapeHtml(d.group)}" data-id="${d.id}">
-    <div class="media-wrap" style="--ratio:${d.ratio}">
-      <video class="demo-media" preload="none" playsinline muted poster="${d.poster}" aria-label="${escapeHtml(d.title)}" data-src="${d.video}"></video>
-      <button class="play-cover" type="button" aria-label="Play ${escapeHtml(d.title)}" title="Play ${escapeHtml(d.title)}"><span><i data-lucide="play" aria-hidden="true"></i></span></button>
-    </div>
-    <figcaption class="demo-caption"><div><h3>${escapeHtml(d.title)}</h3><p>${escapeHtml(d.setup)} &middot; 3&times; speed</p></div><span class="duration">${duration(d.duration)}</span></figcaption>
-    </figure>`).join('');
-  document.querySelector('#demo-count').textContent = `${demos.length} / ${demos.length} clips`;
-  grid.querySelectorAll('.demo-card').forEach(card => {
-    const video = card.querySelector('video');
-    const button = card.querySelector('.play-cover');
-    async function play() {
-      grid.querySelectorAll('video').forEach(other => { if (other !== video) other.pause(); });
-      if (!video.getAttribute('src')) video.src = video.dataset.src;
-      video.controls = true;
-      button.hidden = true;
-      try { await video.play(); }
-      catch {
-        button.hidden = false;
-        if (!card.querySelector('.play-error')) card.insertAdjacentHTML('beforeend', `<p class="play-error">Video could not play. <a href="${video.dataset.src}">Open video</a></p>`);
-      }
-    }
-    button.addEventListener('click', play);
-    video.addEventListener('play', () => grid.querySelectorAll('video').forEach(other => { if (other !== video) other.pause(); }));
-    video.addEventListener('ended', () => { button.hidden = false; video.controls = false; });
-  });
-  filters.addEventListener('click', event => {
-    const button = event.target.closest('[data-filter]');
+  gallery = [...demos.filter(d => d.orientation !== 'portrait'), ...demos.filter(d => d.orientation === 'portrait')];
+  const cards = gallery.map((d, i) => `<figure class="demo-card" data-id="${d.id}">
+    <button class="demo-preview" type="button" data-clip="${i}" aria-label="Play ${escapeHtml(d.title)}" title="Play ${escapeHtml(d.title)}">
+      <img src="${d.poster}" alt="${escapeHtml(d.title)}" loading="${i < 6 ? 'eager' : 'lazy'}">
+      <span class="play-icon"><i data-lucide="play" aria-hidden="true"></i></span>
+      <span class="clip-duration">${duration(d.duration)}</span>
+    </button>
+    <figcaption class="demo-caption"><span class="demo-number">${String(i + 1).padStart(2,'0')}</span><div><h3>${escapeHtml(d.title)}</h3><p>${escapeHtml(d.setup)}</p></div></figcaption>
+  </figure>`);
+  grid.innerHTML = cards.filter((_, i) => gallery[i].orientation !== 'portrait').join('');
+  portraitGrid.innerHTML = cards.filter((_, i) => gallery[i].orientation === 'portrait').join('');
+  document.querySelector('.demo-wall').addEventListener('click', event => {
+    const button = event.target.closest('[data-clip]');
     if (!button) return;
-    const group = button.dataset.filter;
-    filters.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
-    let visible = 0;
-    grid.querySelectorAll('.demo-card').forEach(card => {
-      card.hidden = group !== 'All demos' && card.dataset.group !== group;
-      if (card.hidden) card.querySelector('video').pause();
-      else visible++;
-    });
-    document.querySelector('#demo-count').textContent = `${visible} / ${demos.length} clips`;
+    openClip(Number(button.dataset.clip));
   });
   icons();
 }
+
+async function openClip(index) {
+  if (index < 0 || index >= gallery.length) return;
+  currentClip = index;
+  const clip = gallery[index];
+  const request = ++playbackRequest;
+  playerVideo.pause();
+  playerError.hidden = true;
+  document.querySelector('#player-title').textContent = clip.title;
+  document.querySelector('#player-meta').textContent = `${clip.setup} \u00b7 3\u00d7 speed`;
+  document.querySelector('#player-counter').textContent = `${index + 1} / ${gallery.length}`;
+  document.querySelector('#player-prev').disabled = index === 0;
+  document.querySelector('#player-next').disabled = index === gallery.length - 1;
+  playerVideo.poster = clip.poster;
+  player.classList.toggle('is-portrait', clip.orientation === 'portrait');
+  playerVideo.setAttribute('aria-label', clip.title);
+  playerVideo.src = clip.video;
+  if (!player.open) {
+    document.body.classList.add('player-open');
+    player.showModal();
+  }
+  try { await playerVideo.play(); }
+  catch (error) {
+    // Switching clips can abort a previous play request without a media failure.
+    if (request !== playbackRequest || error.name === 'AbortError') return;
+    playerError.innerHTML = `Video could not play. <a href="${clip.video}" target="_blank" rel="noreferrer">Open video</a>`;
+    playerError.hidden = false;
+  }
+}
+
+function releasePlayer() {
+  playbackRequest++;
+  playerVideo.pause();
+  playerVideo.removeAttribute('src');
+  playerVideo.removeAttribute('poster');
+  playerVideo.load();
+  document.body.classList.remove('player-open');
+}
+
+function closePlayer() {
+  releasePlayer();
+  player.close();
+}
+
+document.querySelector('#player-close').addEventListener('click', closePlayer);
+document.querySelector('#player-prev').addEventListener('click', () => openClip(currentClip - 1));
+document.querySelector('#player-next').addEventListener('click', () => openClip(currentClip + 1));
+player.addEventListener('cancel', event => {
+  event.preventDefault();
+  closePlayer();
+});
+player.addEventListener('close', () => {
+  if (!player.open && document.body.classList.contains('player-open')) releasePlayer();
+});
+player.addEventListener('click', event => {
+  const rect = player.getBoundingClientRect();
+  if (event.target === player && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) closePlayer();
+});
+player.addEventListener('keydown', event => {
+  if (event.target === playerVideo) return;
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+    event.preventDefault();
+    openClip(currentClip + (event.key === 'ArrowRight' ? 1 : -1));
+  }
+});
 
 function renderExamples(examples) {
   const groups = [...new Set(examples.map(e => e.group))];
@@ -74,7 +118,7 @@ function renderCoverage(stats) {
 }
 
 icons();
-getData('data/demos.json').then(renderDemos).catch(error => {
+getData('data/demos.json?v=gallery-2').then(renderDemos).catch(error => {
   grid.innerHTML = '<p>Unable to load demonstrations. Please refresh the page.</p>';
   console.error(error);
 });

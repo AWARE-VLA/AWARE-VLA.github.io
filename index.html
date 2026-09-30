@@ -8,9 +8,9 @@
   <meta name="referrer" content="no-referrer">
   <title>AWARE-VLA | Demonstrations &amp; Dataset</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=gallery-2">
   <script src="lucide.min.js" defer></script>
-  <script src="script.js" defer></script>
+  <script src="script.js?v=gallery-2" defer></script>
 </head>
 <body>
   <a class="skip" href="#demos">Skip to demonstrations</a>
@@ -34,11 +34,10 @@
         <div><p class="eyebrow section-number">01 / In the real world</p><h2 id="demos-title">Manipulation in motion.</h2></div>
         <p class="section-summary">From precise insertion to coordinated bimanual tasks.<br><span class="small-meta">20 demonstrations &middot; 3&times; recorded speed</span></p>
       </div>
-      <div class="gallery-toolbar">
-        <div id="demo-filters" class="filters" role="group" aria-label="Demonstration categories"></div>
-        <span id="demo-count" class="count" aria-live="polite"></span>
+      <div class="demo-wall">
+        <div id="demo-grid" class="demo-grid"></div>
+        <div id="portrait-grid" class="portrait-grid"></div>
       </div>
-      <div id="demo-grid" class="demo-grid"></div>
       <noscript><p>JavaScript is required for the video gallery.</p></noscript>
     </section>
 
@@ -98,6 +97,19 @@
       </div>
     </section>
   </main>
+  <dialog id="demo-player" class="demo-player" aria-labelledby="player-title">
+    <header class="player-heading">
+      <div><p id="player-meta" class="small-meta"></p><h2 id="player-title"></h2></div>
+      <button id="player-close" class="icon-button" type="button" aria-label="Close video" title="Close video"><i data-lucide="x" aria-hidden="true"></i></button>
+    </header>
+    <div class="player-stage"><video id="player-video" controls playsinline muted preload="none"></video></div>
+    <p id="player-error" class="play-error" role="status" hidden></p>
+    <footer class="player-footer">
+      <button id="player-prev" class="icon-button" type="button" aria-label="Previous video" title="Previous video"><i data-lucide="chevron-left" aria-hidden="true"></i></button>
+      <span id="player-counter" aria-live="polite"></span>
+      <button id="player-next" class="icon-button" type="button" aria-label="Next video" title="Next video"><i data-lucide="chevron-right" aria-hidden="true"></i></button>
+    </footer>
+  </dialog>
   <footer class="site-footer wrap"><span>AWARE-VLA <span class="footer-divider">/</span> Anonymous supplementary material</span><a href="#top" aria-label="Back to top" title="Back to top"><i data-lucide="arrow-up" aria-hidden="true"></i></a></footer>
 </body>
 </html>
