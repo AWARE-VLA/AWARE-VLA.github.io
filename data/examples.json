@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Sort plush toys",
+    "group": "Pick and place",
+    "image": "media/dataset/example-01.webp"
+  },
+  {
+    "title": "Place potatoes",
+    "group": "Pick and place",
+    "image": "media/dataset/example-02.webp"
+  },
+  {
+    "title": "Place office equipment",
+    "group": "Pick and place",
+    "image": "media/dataset/example-03.webp"
+  },
+  {
+    "title": "Open a drawer",
+    "group": "Object actuation",
+    "image": "media/dataset/example-04.webp"
+  },
+  {
+    "title": "Open cabinet doors",
+    "group": "Object actuation",
+    "image": "media/dataset/example-05.webp"
+  },
+  {
+    "title": "Unscrew a bottle cap",
+    "group": "Object actuation",
+    "image": "media/dataset/example-06.webp"
+  },
+  {
+    "title": "Insert a plug",
+    "group": "Insertion and assembly",
+    "image": "media/dataset/example-07.webp"
+  },
+  {
+    "title": "Insert a network cable",
+    "group": "Insertion and assembly",
+    "image": "media/dataset/example-08.webp"
+  },
+  {
+    "title": "Insert a straw",
+    "group": "Insertion and assembly",
+    "image": "media/dataset/example-09.webp"
+  },
+  {
+    "title": "Stamp paper",
+    "group": "Tool use",
+    "image": "media/dataset/example-10.webp"
+  },
+  {
+    "title": "Staple paper",
+    "group": "Tool use",
+    "image": "media/dataset/example-11.webp"
+  },
+  {
+    "title": "Cut vegetables",
+    "group": "Tool use",
+    "image": "media/dataset/example-12.webp"
+  },
+  {
+    "title": "Pour into a bowl",
+    "group": "Pouring and transfer",
+    "image": "media/dataset/example-13.webp"
+  },
+  {
+    "title": "Pour between cups",
+    "group": "Pouring and transfer",
+    "image": "media/dataset/example-14.webp"
+  },
+  {
+    "title": "Transfer between tubes",
+    "group": "Pouring and transfer",
+    "image": "media/dataset/example-15.webp"
+  },
+  {
+    "title": "Stack blocks",
+    "group": "Arranging and stacking",
+    "image": "media/dataset/example-16.webp"
+  },
+  {
+    "title": "Stack baskets",
+    "group": "Arranging and stacking",
+    "image": "media/dataset/example-17.webp"
+  },
+  {
+    "title": "Set the table",
+    "group": "Arranging and stacking",
+    "image": "media/dataset/example-18.webp"
+  },
+  {
+    "title": "Fold a shirt",
+    "group": "Folding and packing",
+    "image": "media/dataset/example-19.webp"
+  },
+  {
+    "title": "Fold trousers",
+    "group": "Folding and packing",
+    "image": "media/dataset/example-20.webp"
+  },
+  {
+    "title": "Fold a box",
+    "group": "Folding and packing",
+    "image": "media/dataset/example-21.webp"
+  },
+  {
+    "title": "Wipe a table",
+    "group": "Cleaning",
+    "image": "media/dataset/example-22.webp"
+  },
+  {
+    "title": "Sweep litter",
+    "group": "Cleaning",
+    "image": "media/dataset/example-23.webp"
+  },
+  {
+    "title": "Wash dishes",
+    "group": "Cleaning",
+    "image": "media/dataset/example-24.webp"
+  }
+]

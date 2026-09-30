@@ -1,0 +1,288 @@
+{
+  "corpus": {
+    "task_repositories": 722,
+    "trajectories": 1000654,
+    "hours": 10050,
+    "fps": 20
+  },
+  "definitions": "Skill categories group task instructions by primary behavior. Object coverage is multi-label: an instruction may involve multiple object categories.",
+  "skills": [
+    {
+      "code": "P",
+      "label": "Pick-and-place",
+      "color": "#397EA8",
+      "description_count": 139,
+      "trajectory_count": 207909,
+      "trajectory_share_percent": 20.777311638188625
+    },
+    {
+      "code": "A",
+      "label": "Object actuation",
+      "color": "#B77948",
+      "description_count": 105,
+      "trajectory_count": 199282,
+      "trajectory_share_percent": 19.915175475239195
+    },
+    {
+      "code": "I",
+      "label": "Insertion & assembly",
+      "color": "#8468A8",
+      "description_count": 44,
+      "trajectory_count": 93722,
+      "trajectory_share_percent": 9.366074587219957
+    },
+    {
+      "code": "U",
+      "label": "Tool use",
+      "color": "#C87885",
+      "description_count": 32,
+      "trajectory_count": 44267,
+      "trajectory_share_percent": 4.423806830332962
+    },
+    {
+      "code": "Q",
+      "label": "Pouring & transfer",
+      "color": "#499FAD",
+      "description_count": 44,
+      "trajectory_count": 39206,
+      "trajectory_share_percent": 3.9180376034073716
+    },
+    {
+      "code": "O",
+      "label": "Arranging & stacking",
+      "color": "#A49840",
+      "description_count": 203,
+      "trajectory_count": 298598,
+      "trajectory_share_percent": 29.840284453967104
+    },
+    {
+      "code": "D",
+      "label": "Folding & shaping",
+      "color": "#5C9A76",
+      "description_count": 54,
+      "trajectory_count": 59895,
+      "trajectory_share_percent": 5.9855854271306566
+    },
+    {
+      "code": "C",
+      "label": "Cleaning",
+      "color": "#AA6C54",
+      "description_count": 50,
+      "trajectory_count": 48400,
+      "trajectory_share_percent": 4.8368367087924495
+    },
+    {
+      "code": "Z",
+      "label": "Underspecified",
+      "color": "#AAB3BC",
+      "description_count": 6,
+      "trajectory_count": 9375,
+      "trajectory_share_percent": 0.9368872757216781
+    }
+  ],
+  "duration_histogram": [
+    {
+      "label_seconds": "0-20",
+      "lo_seconds": 0,
+      "hi_seconds": 20,
+      "episodes": 92454
+    },
+    {
+      "label_seconds": "20-40",
+      "lo_seconds": 20,
+      "hi_seconds": 40,
+      "episodes": 785691
+    },
+    {
+      "label_seconds": "40-60",
+      "lo_seconds": 40,
+      "hi_seconds": 60,
+      "episodes": 102861
+    },
+    {
+      "label_seconds": "60-80",
+      "lo_seconds": 60,
+      "hi_seconds": 80,
+      "episodes": 15594
+    },
+    {
+      "label_seconds": "80-100",
+      "lo_seconds": 80,
+      "hi_seconds": 100,
+      "episodes": 266
+    },
+    {
+      "label_seconds": "100-120",
+      "lo_seconds": 100,
+      "hi_seconds": 120,
+      "episodes": 0
+    },
+    {
+      "label_seconds": "120-140",
+      "lo_seconds": 120,
+      "hi_seconds": 140,
+      "episodes": 3646
+    },
+    {
+      "label_seconds": "140-160",
+      "lo_seconds": 140,
+      "hi_seconds": 160,
+      "episodes": 0
+    },
+    {
+      "label_seconds": "160-180",
+      "lo_seconds": 160,
+      "hi_seconds": 180,
+      "episodes": 0
+    },
+    {
+      "label_seconds": "180-200",
+      "lo_seconds": 180,
+      "hi_seconds": 200,
+      "episodes": 142
+    }
+  ],
+  "object_domains": [
+    "Food & liquids",
+    "Tableware & vessels",
+    "Storage & packaging",
+    "Furniture & fixtures",
+    "Textiles & apparel",
+    "Paper & stationery",
+    "Tools & cleaning items",
+    "Electronics & appliances",
+    "Personal care & accessories",
+    "Toys & decor",
+    "Unspecified"
+  ],
+  "coverage_rows": [
+    "Pick-and-place",
+    "Object actuation",
+    "Insertion & assembly",
+    "Tool use",
+    "Pouring & transfer",
+    "Arranging & stacking",
+    "Folding & shaping",
+    "Cleaning",
+    "Underspecified"
+  ],
+  "coverage": [
+    [
+      41,
+      52,
+      72,
+      2,
+      10,
+      14,
+      15,
+      10,
+      13,
+      15,
+      7
+    ],
+    [
+      4,
+      21,
+      33,
+      40,
+      1,
+      12,
+      4,
+      22,
+      13,
+      4,
+      10
+    ],
+    [
+      9,
+      11,
+      12,
+      1,
+      0,
+      2,
+      3,
+      13,
+      3,
+      17,
+      0
+    ],
+    [
+      8,
+      5,
+      7,
+      0,
+      0,
+      19,
+      22,
+      8,
+      1,
+      0,
+      2
+    ],
+    [
+      44,
+      41,
+      5,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1,
+      0
+    ],
+    [
+      40,
+      94,
+      66,
+      36,
+      23,
+      18,
+      5,
+      7,
+      4,
+      30,
+      2
+    ],
+    [
+      5,
+      4,
+      10,
+      1,
+      39,
+      5,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    [
+      5,
+      22,
+      26,
+      8,
+      12,
+      20,
+      8,
+      5,
+      1,
+      10,
+      9
+    ],
+    [
+      4,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ]
+  ]
+}

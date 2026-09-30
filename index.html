@@ -3,7 +3,101 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Supplementary Material</title>
+  <meta name="description" content="AWARE-VLA: Geometry-Grounded Anticipatory World-Action Representations from Large-Scale UMI Pretraining. Demonstrations and dataset overview.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title>AWARE-VLA | Demonstrations &amp; Dataset</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+  <script src="lucide.min.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
-<body></body>
+<body>
+  <a class="skip" href="#demos">Skip to demonstrations</a>
+  <header class="site-header">
+    <a class="brand" href="#top">AWARE<span>-VLA</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#demos">Demonstrations</a>
+      <a href="#dataset">Dataset</a>
+    </nav>
+  </header>
+  <main id="top">
+    <section class="paper-heading wrap" aria-labelledby="paper-name">
+      <p class="eyebrow">Anonymous supplementary material</p>
+      <h1 id="paper-name">AWARE<span>-VLA</span></h1>
+      <p class="paper-title">Geometry-Grounded Anticipatory World-Action Representations<br class="desktop-break"> from Large-Scale UMI Pretraining</p>
+      <div class="research-terms"><span>Foveated geometry</span><span>Anticipatory memory</span><span>Real-world manipulation</span></div>
+    </section>
+
+    <section id="demos" class="wrap section" aria-labelledby="demos-title">
+      <div class="section-heading">
+        <div><p class="eyebrow section-number">01 / In the real world</p><h2 id="demos-title">Manipulation in motion.</h2></div>
+        <p class="section-summary">From precise insertion to coordinated bimanual tasks.<br><span class="small-meta">20 demonstrations &middot; 3&times; recorded speed</span></p>
+      </div>
+      <div class="gallery-toolbar">
+        <div id="demo-filters" class="filters" role="group" aria-label="Demonstration categories"></div>
+        <span id="demo-count" class="count" aria-live="polite"></span>
+      </div>
+      <div id="demo-grid" class="demo-grid"></div>
+      <noscript><p>JavaScript is required for the video gallery.</p></noscript>
+    </section>
+
+    <section id="dataset" class="dataset-section" aria-labelledby="dataset-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="eyebrow section-number">02 / The data behind the policy</p><h2 id="dataset-title">A world of everyday interactions.</h2></div>
+          <p class="section-summary">UMI demonstrations across kitchens, offices, storage areas, and light-industrial workstations.</p>
+        </div>
+        <dl class="metrics">
+          <div><dt>Hours of interaction</dt><dd>10,050<span>h</span></dd></div>
+          <div><dt>Demonstration trajectories</dt><dd>1,000,654</dd></div>
+          <div><dt>Task repositories</dt><dd>722</dd></div>
+          <div><dt>Recording frequency</dt><dd>20<span>Hz</span></dd></div>
+        </dl>
+
+        <div class="subsection-heading"><div><p class="eyebrow">Task diversity</p><h3>Eight families of everyday manipulation.</h3></div><p>Food, containers, textiles, tools, electronics, and everyday objects.</p></div>
+        <div id="task-examples" class="task-examples"></div>
+
+        <div class="chart-pair">
+          <figure class="chart-block">
+            <figcaption><span class="figure-letter">A</span><div><h3>Behavioral breadth</h3><p>Trajectory share by primary manipulation category.</p></div></figcaption>
+            <a href="media/charts/skill-composition.png" target="_blank" aria-label="Open full-size behavior composition chart"><img src="media/charts/skill-composition.png" alt="Trajectory shares: arranging and stacking 29.8%, pick-and-place 20.8%, object actuation 19.9%, insertion and assembly 9.4%, folding and shaping 6.0%, cleaning 4.8%, tool use 4.4%, pouring and transfer 3.9%, underspecified 0.9%." loading="lazy" width="1332" height="774"></a>
+          </figure>
+          <figure class="chart-block">
+            <figcaption><span class="figure-letter">B</span><div><h3>Temporal variety</h3><p>Trajectory duration at 20 Hz; 20-second bins.</p></div></figcaption>
+            <a href="media/charts/duration.png" target="_blank" aria-label="Open full-size trajectory duration histogram"><img src="media/charts/duration.png" alt="Duration histogram: the largest bin is 20 to 40 seconds with 785,691 trajectories. Median 28.1 seconds and maximum 193.05 seconds." loading="lazy" width="1332" height="774"></a>
+            <p class="chart-note"><strong>3,788</strong> trajectories extend beyond two minutes.</p>
+          </figure>
+        </div>
+
+        <figure class="coverage-block">
+          <figcaption><span class="figure-letter">C</span><div><h3>Skills meet objects</h3><p>Task-description coverage across object categories. Each instruction can involve multiple object types.</p></div></figcaption>
+          <div class="heatmap-scroll" tabindex="0" role="region" aria-label="Skill and object coverage table"><table id="heatmap"><caption class="sr-only">Number of task descriptions for each skill and object category</caption></table></div>
+          <div class="heatmap-legend"><span>Fewer tasks</span><span class="legend-colors" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>More tasks</span></div>
+        </figure>
+
+        <div class="chart-pair">
+          <figure class="chart-block">
+            <figcaption><span class="figure-letter">D</span><div><h3>Everyday object diversity</h3><p>Task descriptions involving each object category; categories can overlap.</p></div></figcaption>
+            <a href="media/charts/object-coverage.png" target="_blank" aria-label="Open full-size object coverage chart"><img src="media/charts/object-coverage.png" alt="Object category coverage across food, tableware, storage, furniture, textiles, paper, tools, electronics, personal care, and toys." loading="lazy" width="1332" height="864"></a>
+          </figure>
+          <figure class="chart-block">
+            <figcaption><span class="figure-letter">E</span><div><h3>Single-arm &amp; bimanual</h3><p>Demonstrations across two manipulation configurations.</p></div></figcaption>
+            <a href="media/charts/embodiments.png" target="_blank" aria-label="Open full-size embodiment distribution chart"><img src="media/charts/embodiments.png" alt="144 single-arm and 578 bimanual task repositories, totaling 722." loading="lazy" width="1332" height="864"></a>
+          </figure>
+        </div>
+
+        <div class="geometry-section">
+          <div class="geometry-intro"><p class="eyebrow">Visual &amp; geometric evidence</p><h3>From scene context<br>to interaction detail.</h3><p>Wide-field RGB preserves the scene. Interaction-centered views retain local detail, while estimated depth supplies complementary geometric evidence.</p><p class="small-meta">Example observations: insertion and sandwich preparation.</p></div>
+          <div class="modality-examples">
+            <div class="modality-labels"><span>Wide-field RGB</span><span>Interaction region</span><span>Estimated depth</span></div>
+            <div class="modality-row"><img src="media/dataset/insertion-rgb.webp" alt="Full wrist-camera view of stick insertion" loading="lazy"><img src="media/dataset/insertion-crop.webp" alt="Interaction-region RGB view of stick insertion" loading="lazy"><img src="media/dataset/insertion-depth.webp" alt="Estimated interaction-region depth for stick insertion" loading="lazy"></div>
+            <div class="modality-row"><img src="media/dataset/sandwich-rgb.webp" alt="Full wrist-camera view of sandwich preparation" loading="lazy"><img src="media/dataset/sandwich-crop.webp" alt="Interaction-region RGB view of sandwich preparation" loading="lazy"><img src="media/dataset/sandwich-depth.webp" alt="Estimated interaction-region depth for sandwich preparation" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer wrap"><span>AWARE-VLA <span class="footer-divider">/</span> Anonymous supplementary material</span><a href="#top" aria-label="Back to top" title="Back to top"><i data-lucide="arrow-up" aria-hidden="true"></i></a></footer>
+</body>
 </html>
