@@ -170,9 +170,22 @@ function renderCoverage(stats) {
 }
 
 icons();
-getData('data/demos.json?v=gallery-2').then(renderDemos).catch(error => {
-  grid.innerHTML = '<p>Unable to load demonstrations. Please refresh the page.</p>';
-  console.error(error);
+const initialAnchor = location.hash.slice(1);
+let preserveInitialAnchor = true;
+const cancelInitialAnchor = () => { preserveInitialAnchor = false; };
+const navigationEvents = ['wheel', 'touchstart', 'pointerdown', 'keydown'];
+navigationEvents.forEach(type => window.addEventListener(type, cancelInitialAnchor, {once: true, passive: true}));
+Promise.allSettled([
+  getData('data/demos.json?v=gallery-2').then(renderDemos).catch(error => {
+    grid.innerHTML = '<p>Unable to load demonstrations. Please refresh the page.</p>';
+    console.error(error);
+  }),
+  getData('data/examples.json?v=dataset-video-1').then(renderExamples).catch(console.error),
+  getData('data/dataset_stats.json').then(renderCoverage).catch(console.error)
+]).then(() => {
+  navigationEvents.forEach(type => window.removeEventListener(type, cancelInitialAnchor));
+  // Restore the initial fragment after the galleries have their final height.
+  if (initialAnchor && preserveInitialAnchor && location.hash.slice(1) === initialAnchor) {
+    requestAnimationFrame(() => document.getElementById(initialAnchor)?.scrollIntoView({block: 'start', behavior: 'instant'}));
+  }
 });
-getData('data/examples.json?v=dataset-video-1').then(renderExamples).catch(console.error);
-getData('data/dataset_stats.json').then(renderCoverage).catch(console.error);
