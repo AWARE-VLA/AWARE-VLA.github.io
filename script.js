@@ -5,8 +5,12 @@ const player = document.querySelector('#demo-player');
 const playerVideo = document.querySelector('#player-video');
 const playerError = document.querySelector('#player-error');
 let gallery = [];
+let activeGallery = [];
 let currentClip = 0;
 let playbackRequest = 0;
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let datasetMotionEnabled = !reducedMotion.matches;
+const visibleDatasetVideos = new Set();
 const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const icons = () => window.lucide?.createIcons();
 const duration = seconds => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
@@ -32,31 +36,34 @@ function renderDemos(demos) {
   document.querySelector('.demo-wall').addEventListener('click', event => {
     const button = event.target.closest('[data-clip]');
     if (!button) return;
-    openClip(Number(button.dataset.clip));
+    openClip(Number(button.dataset.clip), gallery);
   });
   icons();
 }
 
-async function openClip(index) {
-  if (index < 0 || index >= gallery.length) return;
+async function openClip(index, collection = activeGallery) {
+  if (index < 0 || index >= collection.length) return;
+  activeGallery = collection;
   currentClip = index;
-  const clip = gallery[index];
+  const clip = collection[index];
   const request = ++playbackRequest;
   playerVideo.pause();
   playerError.hidden = true;
   document.querySelector('#player-title').textContent = clip.title;
-  document.querySelector('#player-meta').textContent = `${clip.setup} \u00b7 3\u00d7 speed`;
-  document.querySelector('#player-counter').textContent = `${index + 1} / ${gallery.length}`;
+  document.querySelector('#player-meta').textContent = `${clip.setup} \u00b7 ${clip.playback_speed || 3}\u00d7 speed`;
+  document.querySelector('#player-counter').textContent = `${index + 1} / ${collection.length}`;
   document.querySelector('#player-prev').disabled = index === 0;
-  document.querySelector('#player-next').disabled = index === gallery.length - 1;
+  document.querySelector('#player-next').disabled = index === collection.length - 1;
   playerVideo.poster = clip.poster;
   player.classList.toggle('is-portrait', clip.orientation === 'portrait');
+  player.classList.toggle('is-square', clip.orientation === 'square');
   playerVideo.setAttribute('aria-label', clip.title);
   playerVideo.src = clip.video;
   if (!player.open) {
     document.body.classList.add('player-open');
     player.showModal();
   }
+  syncDatasetPreviews();
   try { await playerVideo.play(); }
   catch (error) {
     // Switching clips can abort a previous play request without a media failure.
@@ -73,11 +80,13 @@ function releasePlayer() {
   playerVideo.removeAttribute('poster');
   playerVideo.load();
   document.body.classList.remove('player-open');
+  syncDatasetPreviews();
 }
 
 function closePlayer() {
   releasePlayer();
   player.close();
+  syncDatasetPreviews();
 }
 
 document.querySelector('#player-close').addEventListener('click', closePlayer);
@@ -105,8 +114,51 @@ player.addEventListener('keydown', event => {
 function renderExamples(examples) {
   const groups = [...new Set(examples.map(e => e.group))];
   const colors = ['#377da0','#ce8060','#8e78b3','#c66684','#44949d','#999849','#53987c','#af715d'];
-  document.querySelector('#task-examples').innerHTML = groups.map((group,i) => `<section class="example-group" style="--group-color:${colors[i]}"><h4>${escapeHtml(group)}</h4><div class="example-images">${examples.filter(e => e.group === group).map(e => `<figure class="example"><a href="${e.image}" target="_blank" aria-label="Open ${escapeHtml(e.title)} observation"><img src="${e.image}" alt="UMI observation: ${escapeHtml(e.title)}" width="224" height="224" loading="lazy"></a><figcaption>${escapeHtml(e.title)}</figcaption></figure>`).join('')}</div></section>`).join('');
+  const clips = examples.map(e => ({...e, poster: `${e.image}?v=dataset-video-1`, setup: 'UMI demonstration'}));
+  const target = document.querySelector('#task-examples');
+  target.innerHTML = groups.map((group,i) => `<section class="example-group" style="--group-color:${colors[i]}"><h4>${escapeHtml(group)}</h4><div class="example-images">${clips.filter(e => e.group === group).map(e => `<figure class="example"><div class="example-media"><video class="dataset-video" muted loop playsinline preload="none" poster="${e.poster}" data-src="${e.video}" aria-hidden="true"></video><button class="example-open" type="button" data-example="${clips.indexOf(e)}" aria-label="Enlarge ${escapeHtml(e.title)}" title="Enlarge ${escapeHtml(e.title)}"><span><i data-lucide="maximize-2" aria-hidden="true"></i></span></button></div><figcaption>${escapeHtml(e.title)}</figcaption></figure>`).join('')}</div></section>`).join('');
+  target.addEventListener('click', event => {
+    const button = event.target.closest('[data-example]');
+    if (button) openClip(Number(button.dataset.example), clips);
+  });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= .15) visibleDatasetVideos.add(entry.target);
+      else visibleDatasetVideos.delete(entry.target);
+    });
+    syncDatasetPreviews();
+  }, {threshold: [0, .15]});
+  target.querySelectorAll('video').forEach(video => { video.muted = true; observer.observe(video); });
+  updateDatasetMotionButton();
+  icons();
 }
+
+function syncDatasetPreviews() {
+  document.querySelectorAll('.dataset-video').forEach(video => {
+    const play = datasetMotionEnabled && !document.hidden && !player.open && visibleDatasetVideos.has(video);
+    if (play) {
+      if (!video.getAttribute('src')) video.src = video.dataset.src;
+      if (video.paused) video.play().catch(() => {});
+    } else video.pause();
+  });
+}
+
+function updateDatasetMotionButton() {
+  const button = document.querySelector('#dataset-motion');
+  const label = datasetMotionEnabled ? 'Pause dataset previews' : 'Play dataset previews';
+  button.setAttribute('aria-label', label);
+  button.setAttribute('title', label);
+  button.setAttribute('aria-pressed', String(!datasetMotionEnabled));
+  button.innerHTML = `<i data-lucide="${datasetMotionEnabled ? 'pause' : 'play'}" aria-hidden="true"></i>`;
+  icons();
+}
+
+document.querySelector('#dataset-motion').addEventListener('click', () => {
+  datasetMotionEnabled = !datasetMotionEnabled;
+  updateDatasetMotionButton();
+  syncDatasetPreviews();
+});
+document.addEventListener('visibilitychange', syncDatasetPreviews);
 
 function renderCoverage(stats) {
   const max = Math.max(...stats.coverage.flat());
@@ -122,5 +174,5 @@ getData('data/demos.json?v=gallery-2').then(renderDemos).catch(error => {
   grid.innerHTML = '<p>Unable to load demonstrations. Please refresh the page.</p>';
   console.error(error);
 });
-getData('data/examples.json').then(renderExamples).catch(console.error);
+getData('data/examples.json?v=dataset-video-1').then(renderExamples).catch(console.error);
 getData('data/dataset_stats.json').then(renderCoverage).catch(console.error);

@@ -6,7 +6,7 @@ Static site: https://aware-vla.github.io/
 
 - `index.html`: paper title, demo gallery, dataset overview.
 - `data/demos.json`: source filenames, normalized titles, dimensions, and media paths.
-- `data/examples.json`: representative UMI observations and task labels.
+- `data/examples.json`: representative UMI video previews and task labels.
 - `data/dataset_stats.json`: chart values and counting definitions.
 - `media/`: web-ready videos, posters, observations, and charts.
 
@@ -15,6 +15,13 @@ on demand in a shared large player. Landscape and portrait thumbnails occupy
 separate aligned grids, and all clips remain visible without category filters.
 Source audio
 and identifying media metadata are excluded from the web copies.
+
+Dataset examples are complete demonstration trajectories played at 3x speed.
+Web copies have brighter shadows and moderately enhanced color, with full
+frames preserved. Visible previews loop silently; off-screen previews pause.
+The global pause control and reduced-motion preference disable autoplay.
+Clicking a preview opens the shared player, with dataset navigation separate
+from the robot demo gallery.
 
 GitHub Pages publishes the root of `main`. All runtime assets are self-hosted;
 there is no analytics, external font, or third-party media dependency.

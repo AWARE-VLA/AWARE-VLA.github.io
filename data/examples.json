@@ -2,121 +2,217 @@
   {
     "title": "Sort plush toys",
     "group": "Pick and place",
-    "image": "media/dataset/example-01.webp"
+    "image": "media/dataset/example-01.webp",
+    "video": "media/dataset/example-01.mp4",
+    "duration": 8.35,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Place potatoes",
     "group": "Pick and place",
-    "image": "media/dataset/example-02.webp"
+    "image": "media/dataset/example-02.webp",
+    "video": "media/dataset/example-02.mp4",
+    "duration": 12.35,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Place office equipment",
     "group": "Pick and place",
-    "image": "media/dataset/example-03.webp"
+    "image": "media/dataset/example-03.webp",
+    "video": "media/dataset/example-03.mp4",
+    "duration": 12.05,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Open a drawer",
     "group": "Object actuation",
-    "image": "media/dataset/example-04.webp"
+    "image": "media/dataset/example-04.webp",
+    "video": "media/dataset/example-04.mp4",
+    "duration": 16.7,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Open cabinet doors",
     "group": "Object actuation",
-    "image": "media/dataset/example-05.webp"
+    "image": "media/dataset/example-05.webp",
+    "video": "media/dataset/example-05.mp4",
+    "duration": 9.4,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Unscrew a bottle cap",
     "group": "Object actuation",
-    "image": "media/dataset/example-06.webp"
+    "image": "media/dataset/example-06.webp",
+    "video": "media/dataset/example-06.mp4",
+    "duration": 7.35,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Insert a plug",
     "group": "Insertion and assembly",
-    "image": "media/dataset/example-07.webp"
+    "image": "media/dataset/example-07.webp",
+    "video": "media/dataset/example-07.mp4",
+    "duration": 11.7,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Insert a network cable",
     "group": "Insertion and assembly",
-    "image": "media/dataset/example-08.webp"
+    "image": "media/dataset/example-08.webp",
+    "video": "media/dataset/example-08.mp4",
+    "duration": 8.05,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Insert a straw",
     "group": "Insertion and assembly",
-    "image": "media/dataset/example-09.webp"
+    "image": "media/dataset/example-09.webp",
+    "video": "media/dataset/example-09.mp4",
+    "duration": 14.35,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Stamp paper",
     "group": "Tool use",
-    "image": "media/dataset/example-10.webp"
+    "image": "media/dataset/example-10.webp",
+    "video": "media/dataset/example-10.mp4",
+    "duration": 6.0,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Staple paper",
     "group": "Tool use",
-    "image": "media/dataset/example-11.webp"
+    "image": "media/dataset/example-11.webp",
+    "video": "media/dataset/example-11.mp4",
+    "duration": 16.7,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Cut vegetables",
     "group": "Tool use",
-    "image": "media/dataset/example-12.webp"
+    "image": "media/dataset/example-12.webp",
+    "video": "media/dataset/example-12.mp4",
+    "duration": 10.05,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Pour into a bowl",
     "group": "Pouring and transfer",
-    "image": "media/dataset/example-13.webp"
+    "image": "media/dataset/example-13.webp",
+    "video": "media/dataset/example-13.mp4",
+    "duration": 10.05,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Pour between cups",
     "group": "Pouring and transfer",
-    "image": "media/dataset/example-14.webp"
+    "image": "media/dataset/example-14.webp",
+    "video": "media/dataset/example-14.mp4",
+    "duration": 10.7,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Transfer between tubes",
     "group": "Pouring and transfer",
-    "image": "media/dataset/example-15.webp"
+    "image": "media/dataset/example-15.webp",
+    "video": "media/dataset/example-15.mp4",
+    "duration": 16.7,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Stack blocks",
     "group": "Arranging and stacking",
-    "image": "media/dataset/example-16.webp"
+    "image": "media/dataset/example-16.webp",
+    "video": "media/dataset/example-16.mp4",
+    "duration": 14.0,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Stack baskets",
     "group": "Arranging and stacking",
-    "image": "media/dataset/example-17.webp"
+    "image": "media/dataset/example-17.webp",
+    "video": "media/dataset/example-17.mp4",
+    "duration": 10.15,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Set the table",
     "group": "Arranging and stacking",
-    "image": "media/dataset/example-18.webp"
+    "image": "media/dataset/example-18.webp",
+    "video": "media/dataset/example-18.mp4",
+    "duration": 12.05,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Fold a shirt",
     "group": "Folding and packing",
-    "image": "media/dataset/example-19.webp"
+    "image": "media/dataset/example-19.webp",
+    "video": "media/dataset/example-19.mp4",
+    "duration": 13.4,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Fold trousers",
     "group": "Folding and packing",
-    "image": "media/dataset/example-20.webp"
+    "image": "media/dataset/example-20.webp",
+    "video": "media/dataset/example-20.mp4",
+    "duration": 8.35,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Fold a box",
     "group": "Folding and packing",
-    "image": "media/dataset/example-21.webp"
+    "image": "media/dataset/example-21.webp",
+    "video": "media/dataset/example-21.mp4",
+    "duration": 6.7,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Wipe a table",
     "group": "Cleaning",
-    "image": "media/dataset/example-22.webp"
+    "image": "media/dataset/example-22.webp",
+    "video": "media/dataset/example-22.mp4",
+    "duration": 13.35,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Sweep litter",
     "group": "Cleaning",
-    "image": "media/dataset/example-23.webp"
+    "image": "media/dataset/example-23.webp",
+    "video": "media/dataset/example-23.mp4",
+    "duration": 9.35,
+    "playback_speed": 3,
+    "orientation": "square"
   },
   {
     "title": "Wash dishes",
     "group": "Cleaning",
-    "image": "media/dataset/example-24.webp"
+    "image": "media/dataset/example-24.webp",
+    "video": "media/dataset/example-24.mp4",
+    "duration": 8.7,
+    "playback_speed": 3,
+    "orientation": "square"
   }
 ]
